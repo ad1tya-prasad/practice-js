@@ -1,18 +1,30 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>My Todo List</title>
     </head>
 
     <body>
 
         <button>Press Me</button>
-        <div>Get groceries</div>
-        <div>Wash car</div>
-        <div>Make dinner</div>
-
         <script>
-            
+
+            document.title = 'My Todo List';
+
+            let todo1 = 'Get groceries';
+            let todo2 = 'Wash car';
+            let todo3 = 'Make dinner';
+
+            function addTodo(todoTitle){
+                let element = document.createElement('div');
+                element.innerText = todoTitle;
+                document.body.appendChild(element);
+            }
+
+            addTodo(todo1);
+            addTodo(todo2);
+            addTodo(todo3);
+
+
         </script>
 
     </body>
