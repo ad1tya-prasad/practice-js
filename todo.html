@@ -6,7 +6,7 @@
 
     <body>
         <input id="todo-title" type="text" />
-        <input type="date" />
+        <input id="date-picker" type="date" />
         <button onclick ="addTodo()">Add Todo</button>
 
         <div id="todo-list"></div>
@@ -22,6 +22,9 @@
             function addTodo(){
                 const textbox = document.getElementById('todo-title');
                 const title = textbox.value;
+
+                const datePicker = document.getElementById('date-picker');
+                const dueDate = datePicker.value;
                 todos.push(title);
 
                 render();
