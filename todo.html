@@ -15,7 +15,16 @@
 
             document.title = 'My Todo List';
 
-            const todos = ['Get groceries', 'Wash car', 'Make dinner']
+            const todos = [{
+                title: 'Get groceries',
+                dueDate: '2022-01-11'
+            }, {
+                title: 'Wash car',
+                dueDate: '2022-01-11'
+            }, {
+                title: 'Make dinner',
+                dueDate: '2022-01-11'
+            }];
 
             render();
 
@@ -25,7 +34,10 @@
 
                 const datePicker = document.getElementById('date-picker');
                 const dueDate = datePicker.value;
-                todos.push(title);
+                todos.push({
+                    title: title,
+                    dueDate: dueDate
+                });
 
                 render();
             }
@@ -34,9 +46,15 @@
                 //reset our list
                 document.getElementById('todo-list').innerHTML = '';
 
-                todos.forEach(function(todoTitle){
+                todos.forEach(function(todo){
                 const element = document.createElement('div');
-                element.innerText = todoTitle;
+                element.innerText = todo.title + ' ' + todo.dueDate;
+
+                const deleteButton = document.createElement('button');
+                deleteButton.innerText = 'Delete';
+                element.appendChild(deleteButton);
+                deleteButton.style = 'margin-left: 12px';
+
                 const todoList = document.getElementById('todo-list');
                 todoList.appendChild(element);
             });
